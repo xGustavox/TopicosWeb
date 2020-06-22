@@ -1,0 +1,152 @@
+.main-wrapper {
+    width: 100%;
+    height: calc(100% - 83px);
+    position: absolute;
+
+    .wrapper {
+        padding: 20px;
+        width: 50%;
+        height: 100%;
+        float: left;
+        overflow: auto;
+
+        .pesquisar_field {
+          padding: 10px;
+          width: 100%;
+          border: none;
+          border-bottom: 1px solid #fff;
+          color: #fff;
+          font-size: 17px;
+          background-color: transparent;
+        }
+    }
+
+    .wrapper-editando {
+        background-color: #1d1e20;
+    }
+
+    .besteira {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+
+        img {
+            margin-top: 50px;
+            width: 50%;
+        }
+    }
+
+    
+
+    @media (max-width: 700px) {
+        .wrapper {
+            width: 100%;
+        }
+
+        .wrapper-lista {
+            height: 50%;
+        }
+    }
+}
+
+.titulo {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+.button {
+  padding: 10px 0;
+}
+
+button {
+    padding: 5px 10px;
+    float: right;
+    border: none;
+    background-color: #5e54ad;
+    font-weight: 500;
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #d2d2d2;
+  outline: 0;
+  font-size: 16px;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+  color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 16px;
+  cursor: text;
+  top: 20px;
+}
+
+label,
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 12px;
+  color: #9b9b9b;
+}
+
+.form__field:focus ~ .form__label {
+  color: #5e54ad;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  border-bottom: 2px solid #5e54ad;
+}
+
+/*Tabela*/
+.wrapper-tabela {
+  margin-top: 20px;
+
+  .tabela {
+    border-collapse: collapse;
+    width: 100%;
+    border: none;
+  }
+  
+  .tabela td, .tabela th {
+    padding: 15px;
+    border: none;
+  }
+  
+  .tabela tr:nth-child(even){ background-color: #333; }
+  
+  .tabela tr:hover { 
+    background-color: rgba($color: #996acc, $alpha: .15);
+    cursor: pointer;
+  }
+  
+  .tabela th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: white;
+  }
+}

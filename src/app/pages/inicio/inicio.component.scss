@@ -1,0 +1,38 @@
+.main-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    .wrapper {
+        padding: 20px;
+        width: 50%;
+        height: calc(100% - 73px);
+        float: left;
+        overflow: auto;
+    }
+
+    .wrapper-editando {
+        background-color: #1d1e20;
+    }
+
+    .besteira {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+
+        img {
+            margin-top: 50px;
+            width: 50%;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .wrapper {
+            width: 100%;
+        }
+
+        .wrapper-lista {
+            height: 50%;
+        }
+    }
+}

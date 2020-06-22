@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/scss/variables.scss';
+@import 'assets/scss/fonts.scss';
+@import 'assets/scss/modelo_tela_padrao.scss';
+
+* {
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'topicos2';
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    background-color: $default_bg;
+    color: #fff;
+}
+

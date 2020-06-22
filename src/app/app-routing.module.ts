@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InicioComponent } from './pages/inicio/inicio.component';
-import { AnotacaoListaComponent } from './pages/anotacao/anotacao-lista/anotacao-lista.component';
-import { GrupoListaComponent } from './pages/grupo/grupo-lista/grupo-lista.component';
-import { PessoasComponent } from './pages/pessoas/pessoas/pessoas.component';
+import { PessoasComponent } from './pages/pessoas/pessoas.component';
+import { AnotacoesComponent } from './pages/anotacoes/anotacoes.component';
+import { GrupoComponent } from './pages/grupo/grupo.component';
+import { LoginsComponent } from './pages/logins/logins.component';
+import { PerfisComponent } from './pages/perfis/perfis.component';
+import { RecursosComponent } from './pages/recursos/recursos.component';
 
 
 const routes: Routes = [
   { 
     path: 'inicio', component: InicioComponent, children: [
       { path: 'pessoas', component: PessoasComponent},
-      { path: 'anotacao', component: AnotacaoListaComponent},
-      { path: 'grupo', component: GrupoListaComponent},
+      { path: 'grupo', component: GrupoComponent},
+      { path: 'logins', component: LoginsComponent},
+      { path: 'perfils', component: PerfisComponent},
+      { path: 'recursos', component: RecursosComponent},
       { path: '', redirectTo: 'pessoas', pathMatch: 'full' }
     ]
   },

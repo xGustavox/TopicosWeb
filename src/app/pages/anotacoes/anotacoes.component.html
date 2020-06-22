@@ -1,0 +1,64 @@
+<div class="main-wrapper">
+    <section class="wrapper wrapper-lista">
+        <div>
+            <button (click)="Add()">Adicionar</button>
+        </div>
+        <!-- <input type="text" class="pesquisar_field" placeholder="Pesquisar..."> -->
+        <div class="wrapper-tabela">
+            <table class="tabela">
+                <tr>
+                  <th>Obs</th>
+                  <th>Data</th>
+                  <th>Grupo</th>
+                  <th>Dono da anotação</th>
+                </tr>
+                <tr *ngFor="let a of anotacoes; let i = index" (click)="Load(i)">
+                  <td>{{a.Obs}}</td>
+                  <td>{{a.Data}}</td>
+                  <td>{{a.Id_grupo}}</td>
+                  <td>{{a.Id_pessoa}}</td>
+                </tr>
+              </table>
+        </div>
+    </section>
+    <section class="wrapper wrapper-editando">
+        <div>
+            <div class="besteira" *ngIf="!editando && !adicionando">
+                <div>
+                    Clique em um item para carregar <br>
+                    seus dados no formulário.
+                </div>
+                <img src="assets/img/bat.svg" alt="">
+            </div>
+            <div class="form" *ngIf="editando || adicionando">
+                <form [formGroup]="form" action="">
+                    <div class="title">
+                        <span *ngIf="editando">Editando</span>
+                        <span *ngIf="adicionando">Inserindo</span>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="">Obs</label>
+                        <input type="text" class="form__field" formControlName="obs">
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="">Data</label>
+                        <input type="text" class="form__field" formControlName="Data">
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="">Grupo</label>
+                        <input type="text" class="form__field" formControlName="nome">
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="">Dono da anotação</label>
+                        <input type="text" class="form__field" formControlName="nome">
+                    </div>
+                    <div style="padding: 10px 0;">
+                        <button type="button" (click)="Save()">Salvar</button>
+                        <button type="button" class="delete" (click)="Delete()" *ngIf="editando">Deletar</button>
+                        <button type="button" class="cancel" (click)="Cancel()">Calcelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>

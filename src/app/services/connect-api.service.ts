@@ -18,4 +18,16 @@ export class ConnectApiService {
   get(rota): Observable<any> {
     return this.httpClient.get(this.URI + rota)
   }
+
+  post(rota, corpo) {
+    return this.httpClient.post(this.URI + rota, corpo)
+  }
+
+  put(rota, corpo) {
+    return this.httpClient.put(this.URI + rota, corpo)
+  }
+
+  delete(rota) {
+    return this.httpClient.delete(this.URI + rota)
+  }
 }

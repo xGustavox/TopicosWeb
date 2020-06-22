@@ -31,8 +31,8 @@
         font-weight: 600;
 
         img {
-            margin-top: 50px;
-            width: 50%;
+            margin-top: 70px;
+            width: 70%;
         }
     }
 
@@ -71,6 +71,13 @@ button {
     border-radius: 5px;
     cursor: pointer;
     margin-left: 10px;
+
+    &.delete {
+      background-color: #bb4545;
+    }
+    &.cancel {
+      background-color: #d4b732;
+    }
 }
 
 .form__group {

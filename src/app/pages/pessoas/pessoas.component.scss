@@ -1,0 +1,24 @@
+.besteira {
+    img {
+        animation: aa 5s ease-in-out infinite;
+    }
+}
+
+@keyframes aa {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-40px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.form {
+    .title {
+        font-weight: 600;
+        font-size: 25px;
+    }
+}

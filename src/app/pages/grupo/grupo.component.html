@@ -1,0 +1,46 @@
+<div class="main-wrapper">
+    <section class="wrapper wrapper-lista">
+        <div>
+            <button (click)="Add()">Adicionar</button>
+        </div>
+        <!-- <input type="text" class="pesquisar_field" placeholder="Pesquisar..."> -->
+        <div class="wrapper-tabela">
+            <table class="tabela">
+                <tr>
+                  <th>Nome</th>
+                </tr>
+                <tr *ngFor="let g of grupos; let i = index" (click)="Load(i)">
+                  <td>{{g.nome}}</td>
+                </tr>
+              </table>
+        </div>
+    </section>
+    <section class="wrapper wrapper-editando">
+        <div>
+            <div class="besteira" *ngIf="!editando && !adicionando">
+                <div>
+                    Clique em um item para carregar <br>
+                    seus dados no formulário.
+                </div>
+                <img src="assets/img/bat.svg" alt="">
+            </div>
+            <div class="form" *ngIf="editando || adicionando">
+                <form [formGroup]="form" action="">
+                    <div class="title">
+                        <span *ngIf="editando">Editando</span>
+                        <span *ngIf="adicionando">Inserindo</span>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="">Nome</label>
+                        <input type="text" class="form__field" formControlName="nome">
+                    </div>
+                    <div style="padding: 10px 0;">
+                        <button type="button" (click)="Save()">Salvar</button>
+                        <button type="button" class="delete" (click)="Delete()" *ngIf="editando">Deletar</button>
+                        <button type="button" class="cancel" (click)="Cancel()">Calcelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>

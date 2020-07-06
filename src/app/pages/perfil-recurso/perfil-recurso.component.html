@@ -7,16 +7,12 @@
         <div class="wrapper-tabela">
             <table class="tabela">
                 <tr>
-                    <th>Usuário</th>
-                    <th>Senha</th>
                     <th>Perfil</th>
-                    <th>Pessoa</th>
+                    <th>Recurso</th>
                 </tr>
-                <tr *ngFor="let l of logins; let i = index" (click)="Load(i)">
-                    <td>{{l.user}}</td>
-                    <td>{{l.password}}</td>
-                    <td>{{l.perfil.descricao}}</td>
-                    <td>{{l.pessoa.nome}}</td>
+                <tr *ngFor="let item of perfil_recursos; let i = index" (click)="Load(i)">
+                    <td>{{item.perfil.descricao}}</td>
+                    <td>{{item.recurso.descricao}}</td>
                 </tr>
             </table>
         </div>
@@ -37,14 +33,6 @@
                         <span *ngIf="adicionando">Inserindo</span>
                     </div>
                     <div class="form__group">
-                        <label class="form__label" for="">Usuário</label>
-                        <input type="text" class="form__field" formControlName="user">
-                    </div>
-                    <div class="form__group">
-                        <label class="form__label" for="">Senha</label>
-                        <input type="password" class="form__field" formControlName="password">
-                    </div>
-                    <div class="form__group">
                         <label class="form__label" for="">Perfil</label>
                         <select formControlName="id_perfil" id="">
                             <option *ngFor="let p of perfis" value="{{p.id}}">{{p.descricao}}</option>
@@ -52,8 +40,8 @@
                     </div>
                     <div class="form__group">
                         <label class="form__label" for="">Pessoa</label>
-                        <select formControlName="id_pessoa" id="">
-                            <option *ngFor="let p of pessoas" value="{{p.id}}">{{p.nome}}</option>
+                        <select formControlName="id_recurso" id="">
+                            <option *ngFor="let r of recursos" value="{{r.id}}">{{r.descricao}}</option>
                         </select>
                     </div>
                     <div style="padding: 10px 0;">

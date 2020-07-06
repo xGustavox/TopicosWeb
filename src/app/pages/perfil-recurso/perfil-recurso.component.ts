@@ -3,20 +3,20 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConnectApiService } from 'src/app/services/connect-api.service';
 
 @Component({
-  selector: 'app-logins',
-  templateUrl: './logins.component.html',
-  styleUrls: ['./logins.component.scss']
+  selector: 'app-perfil-recurso',
+  templateUrl: './perfil-recurso.component.html',
+  styleUrls: ['./perfil-recurso.component.scss']
 })
-export class LoginsComponent implements OnInit {
+export class PerfilRecursoComponent implements OnInit {
 
-  logins = []
+  perfil_recursos = []
   editando = false
   adicionando = false
   form: FormGroup
   dado = null
   idFixer = 0
   perfis = []
-  pessoas = []
+  recursos = []
 
   constructor
   (
@@ -24,10 +24,8 @@ export class LoginsComponent implements OnInit {
     private conn: ConnectApiService
   ) { 
     this.form = fb.group({
-      user: ['', Validators.required],
-      password: ['', Validators.required],
       id_perfil: ['', Validators.required],
-      id_pessoa: ['', Validators.required]
+      id_recurso: ['', Validators.required],
     })
   }
 
@@ -47,14 +45,14 @@ export class LoginsComponent implements OnInit {
       this.perfis = res
     })
 
-    this.conn.get("pessoas/1/100").subscribe(res => {
-      this.pessoas = res
+    this.conn.get("recursos/1/100").subscribe(res => {
+      this.recursos = res
     })
   }
 
   Refresh() {
-    this.conn.get("logins/included/1/100").subscribe(res => {
-      this.logins = res
+    this.conn.get("perfisrecursos/included/1/100").subscribe(res => {
+      this.perfil_recursos = res
       console.log(res)
 
       res.map(r => {
@@ -68,24 +66,20 @@ export class LoginsComponent implements OnInit {
 
   Load(i) {
     this.InitSelect();
-    this.dado = this.logins[i]
+    this.dado = this.perfil_recursos[i]
 
-    this.form.controls.user.setValue(this.dado.user)
-    this.form.controls.password.setValue(this.dado.password)
     this.form.controls.id_perfil.setValue(this.dado.id_perfil)
-    this.form.controls.id_pessoa.setValue(this.dado.id_pessoa)
+    this.form.controls.id_recurso.setValue(this.dado.id_recurso)
     this.editando = true
   }
 
   Save() {
     
     if (this.editando) {
-      this.conn.put(`logins`, {
+      this.conn.put(`perfisrecursos`, {
         id: this.dado.id,
-        user: this.form.value.user,
-        password: this.form.value.password,
         id_perfil: Number(this.form.value.id_perfil),
-        id_pessoa: Number(this.form.value.id_pessoa)
+        id_recurso: Number(this.form.value.id_recurso)
       }).subscribe(() => {
         this.Refresh()
       }, err => {
@@ -94,12 +88,10 @@ export class LoginsComponent implements OnInit {
       })
     }
     else {
-      this.conn.post('logins', {
+      this.conn.post('perfisrecursos', {
         id: this.idFixer + 1,
-        user: this.form.value.user,
-        password: this.form.value.password,
         id_perfil: Number(this.form.value.id_perfil),
-        id_pessoa: Number(this.form.value.id_pessoa)
+        id_recurso: Number(this.form.value.id_recurso)
       }).subscribe(() => {
         this.Refresh()
         this.adicionando = false
@@ -110,7 +102,7 @@ export class LoginsComponent implements OnInit {
   }
 
   Delete() {
-    this.conn.delete(`logins/${this.dado.id}`).subscribe(res => {
+    this.conn.delete(`perfisrecursos/${this.dado.id}`).subscribe(res => {
       this.Refresh()
     }, err => {
       alert('Erro ao deletar o registro.')
@@ -118,10 +110,8 @@ export class LoginsComponent implements OnInit {
   }
 
   LimparForm() {
-    this.form.controls.user.setValue('')
-    this.form.controls.password.setValue('')
     this.form.controls.id_perfil.setValue('')
-    this.form.controls.id_pessoa.setValue('')
+    this.form.controls.id_recurso.setValue('')
     this.adicionando = false
     this.editando = false
   }

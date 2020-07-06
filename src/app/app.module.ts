@@ -14,6 +14,8 @@ import { GrupoComponent } from './pages/grupo/grupo.component';
 import { LoginsComponent } from './pages/logins/logins.component';
 import { PerfisComponent } from './pages/perfis/perfis.component';
 import { RecursosComponent } from './pages/recursos/recursos.component';
+import { PerfilRecursoComponent } from './pages/perfil-recurso/perfil-recurso.component';
+import { PessoaGrupoComponent } from './pages/pessoa-grupo/pessoa-grupo.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { RecursosComponent } from './pages/recursos/recursos.component';
     GrupoComponent,
     LoginsComponent,
     PerfisComponent,
-    RecursosComponent
+    RecursosComponent,
+    PerfilRecursoComponent,
+    PessoaGrupoComponent
   ],
   imports: [
     CommonModule,

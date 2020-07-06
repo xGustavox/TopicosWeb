@@ -7,6 +7,8 @@ import { GrupoComponent } from './pages/grupo/grupo.component';
 import { LoginsComponent } from './pages/logins/logins.component';
 import { PerfisComponent } from './pages/perfis/perfis.component';
 import { RecursosComponent } from './pages/recursos/recursos.component';
+import { PerfilRecursoComponent } from './pages/perfil-recurso/perfil-recurso.component';
+import { PessoaGrupoComponent } from './pages/pessoa-grupo/pessoa-grupo.component';
 
 
 const routes: Routes = [
@@ -17,6 +19,8 @@ const routes: Routes = [
       { path: 'logins', component: LoginsComponent},
       { path: 'perfils', component: PerfisComponent},
       { path: 'recursos', component: RecursosComponent},
+      { path: 'perfil-recurso', component: PerfilRecursoComponent},
+      { path: 'pessoa-grupo', component: PessoaGrupoComponent},
       { path: '', redirectTo: 'pessoas', pathMatch: 'full' }
     ]
   },

@@ -7,16 +7,18 @@
         <div class="wrapper-tabela">
             <table class="tabela">
                 <tr>
-                    <th>Usuário</th>
-                    <th>Senha</th>
-                    <th>Perfil</th>
                     <th>Pessoa</th>
+                    <th>Grupo</th>
+                    <th>Ano</th>
+                    <th>Semestre</th>
+                    <th>Papel</th>
                 </tr>
-                <tr *ngFor="let l of logins; let i = index" (click)="Load(i)">
-                    <td>{{l.user}}</td>
-                    <td>{{l.password}}</td>
-                    <td>{{l.perfil.descricao}}</td>
-                    <td>{{l.pessoa.nome}}</td>
+                <tr *ngFor="let item of pessoa_grupo; let i = index" (click)="Load(i)">
+                    <td>{{item.pessoa.nome}}</td>
+                    <td>{{item.grupo.nome}}</td>
+                    <td>{{item.ano}}</td>
+                    <td>{{item.semestre}}</td>
+                    <td>{{item.papel}}</td>
                 </tr>
             </table>
         </div>
@@ -37,24 +39,28 @@
                         <span *ngIf="adicionando">Inserindo</span>
                     </div>
                     <div class="form__group">
-                        <label class="form__label" for="">Usuário</label>
-                        <input type="text" class="form__field" formControlName="user">
-                    </div>
-                    <div class="form__group">
-                        <label class="form__label" for="">Senha</label>
-                        <input type="password" class="form__field" formControlName="password">
-                    </div>
-                    <div class="form__group">
                         <label class="form__label" for="">Perfil</label>
-                        <select formControlName="id_perfil" id="">
-                            <option *ngFor="let p of perfis" value="{{p.id}}">{{p.descricao}}</option>
+                        <select formControlName="id_pessoa" id="">
+                            <option *ngFor="let p of pessoas" value="{{p.id}}">{{p.nome}}</option>
                         </select>
                     </div>
                     <div class="form__group">
                         <label class="form__label" for="">Pessoa</label>
-                        <select formControlName="id_pessoa" id="">
-                            <option *ngFor="let p of pessoas" value="{{p.id}}">{{p.nome}}</option>
+                        <select formControlName="id_grupo" id="">
+                            <option *ngFor="let r of grupos" value="{{r.id}}">{{r.nome}}</option>
                         </select>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="">Ano</label>
+                        <input type="text" class="form__field" formControlName="ano">
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="">Semestre</label>
+                        <input type="text" class="form__field" formControlName="semestre">
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="">Papel</label>
+                        <input type="text" class="form__field" formControlName="papel">
                     </div>
                     <div style="padding: 10px 0;">
                         <button type="button" (click)="Save()">Salvar</button>
